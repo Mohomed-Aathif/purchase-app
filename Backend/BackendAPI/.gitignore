@@ -1,0 +1,11 @@
+﻿.vs/
+Backend/.vs/
+
+bin/
+obj/
+
+node_modules/
+dist/
+
+*.user
+*.suo
