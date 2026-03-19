@@ -1,0 +1,79 @@
+<div class="container">
+
+  <h2>Purchase Bill</h2>
+
+  <div class="form-grid">
+
+    <div class="form-group">
+      <label>Item</label>
+      <select [(ngModel)]="selectedItem">
+        <option *ngFor="let i of items" [value]="i">{{i}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Batch</label>
+      <select [(ngModel)]="selectedBatch">
+        <option *ngFor="let b of batches" [value]="b.location_Name">
+          {{b.location_Name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Standard Cost</label>
+      <input type="number" [(ngModel)]="standardCost">
+    </div>
+
+    <div class="form-group">
+      <label>Standard Price</label>
+      <input type="number" [(ngModel)]="standardPrice">
+    </div>
+
+    <div class="form-group">
+      <label>Quantity</label>
+      <input type="number" [(ngModel)]="qty">
+    </div>
+
+    <div class="form-group">
+      <label>Discount %</label>
+      <input type="number" [(ngModel)]="discount">
+    </div>
+
+  </div>
+
+  <button class="btn" (click)="addItem()">Add Item</button>
+
+  <div class="table-section">
+    <h3>Items</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Batch</th>
+          <th>Qty</th>
+          <th>Total Cost</th>
+          <th>Total Selling</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let t of tableData">
+          <td>{{t.item}}</td>
+          <td>{{t.batch}}</td>
+          <td>{{t.qty}}</td>
+          <td>{{t.totalCost}}</td>
+          <td>{{t.totalSelling}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>Total Items: <strong>{{totalItems}}</strong></p>
+    <p>Total Quantity: <strong>{{totalQty}}</strong></p>
+  </div>
+
+</div>
